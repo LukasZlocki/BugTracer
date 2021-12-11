@@ -1,7 +1,9 @@
 .vs/
-.BugTracer/bin/
-.BugTracer/obj/
-.BugTracer.Data/bin/
-.BugTracer.Data/obj/
-.BugTracer.Services/bin/
-.BugTracer.Services/obj/
+BugTracer/bin/
+BugTracer/obj/
+
+BugTracer.Data/bin/
+BugTracer.Data/obj/
+
+BugTracer.Services/bin/
+BugTracer.Services/obj/
