@@ -1,0 +1,12 @@
+D:\NetCore\BugTracer\BugTracer.Services\bin\Debug\net6.0\BugTracer.Services.deps.json
+D:\NetCore\BugTracer\BugTracer.Services\bin\Debug\net6.0\BugTracer.Services.dll
+D:\NetCore\BugTracer\BugTracer.Services\bin\Debug\net6.0\ref\BugTracer.Services.dll
+D:\NetCore\BugTracer\BugTracer.Services\bin\Debug\net6.0\BugTracer.Services.pdb
+D:\NetCore\BugTracer\BugTracer.Services\obj\Debug\net6.0\BugTracer.Services.csproj.AssemblyReference.cache
+D:\NetCore\BugTracer\BugTracer.Services\obj\Debug\net6.0\BugTracer.Services.GeneratedMSBuildEditorConfig.editorconfig
+D:\NetCore\BugTracer\BugTracer.Services\obj\Debug\net6.0\BugTracer.Services.AssemblyInfoInputs.cache
+D:\NetCore\BugTracer\BugTracer.Services\obj\Debug\net6.0\BugTracer.Services.AssemblyInfo.cs
+D:\NetCore\BugTracer\BugTracer.Services\obj\Debug\net6.0\BugTracer.Services.csproj.CoreCompileInputs.cache
+D:\NetCore\BugTracer\BugTracer.Services\obj\Debug\net6.0\BugTracer.Services.dll
+D:\NetCore\BugTracer\BugTracer.Services\obj\Debug\net6.0\ref\BugTracer.Services.dll
+D:\NetCore\BugTracer\BugTracer.Services\obj\Debug\net6.0\BugTracer.Services.pdb
