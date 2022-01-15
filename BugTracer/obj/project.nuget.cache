@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "SpKsg4IOogQ3X6PMbZzc8IAUVZ29fXKBrFxpq/we9Va9fga+7k0avVSwRTgnFGIrvpBHU4hg75fOAsREQspPgA==",
+  "dgSpecHash": "JiVyNYC8IMudfAaqzjLa4MkAg9HoEt5uGDddCV8ButgguhFxR0+w1ssRreTKV1vFL4AQkpNdJAbbVzMHqEYf/w==",
   "success": true,
   "projectFilePath": "D:\\NetCore\\BugTracer\\BugTracer\\BugTracer.Api.csproj",
   "expectedPackageFiles": [
