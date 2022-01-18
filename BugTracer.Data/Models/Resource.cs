@@ -4,7 +4,7 @@ namespace BugTracer.Data.Models
 {
     public class Resource
     {
-        public int ResourceId { get; set; }
+        public int Id { get; set; }
 
         [MaxLength(15)]
         public string FirstName { get; set; }

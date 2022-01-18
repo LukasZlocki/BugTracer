@@ -4,7 +4,7 @@ namespace BugTracer.Data.Models
 {
     public class TicketStatus
     {
-        public int StatusId { get; set; }
+        public int Id { get; set; }
         [MaxLength(10)]
         public string Status { get; set; }
 

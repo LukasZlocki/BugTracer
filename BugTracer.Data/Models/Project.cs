@@ -4,7 +4,7 @@ namespace BugTracer.Data.Models
 {
     public class Project
     {
-        public int ProjectId { get; set; }
+        public int Id { get; set; }
         [MaxLength(50)]
         public string Name { get; set; }
         [MaxLength(500)]

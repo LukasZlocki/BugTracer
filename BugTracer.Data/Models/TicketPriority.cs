@@ -4,7 +4,7 @@ namespace BugTracer.Data.Models
 {
     public class TicketPriority
     {
-        public int PriorityId { get; set; }
+        public int Id { get; set; }
         [MaxLength(15)]
         public string Priority { get; set; }
 
