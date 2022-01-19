@@ -1,9 +1,4 @@
 ﻿using BugTracer.Data.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BugTracer.Services.Ticket_Service
 {
@@ -14,7 +9,6 @@ namespace BugTracer.Services.Ticket_Service
 
         // READ
         public List<Ticket> GetTicketsByProjectId(int id);
-
 
         // UPDATE
         public ServiceResponse<bool> UpdateTicketStatuses(Ticket ticket);
