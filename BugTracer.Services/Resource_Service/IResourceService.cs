@@ -5,11 +5,11 @@ namespace BugTracer.Services.Resource_Service
     public interface IResourceService
     {
         // CREATE
-        public ServiceResponse<Resource> CreateResource(int id);
+        public ServiceResponse<Resource> CreateResource(Resource resource);
 
         // READ
         public List<Resource> GetAllResources();
-        public Resource GetresourceById(int id);
+        public Resource GetResourceById(int id);
         
         // UPDATE
         public ServiceResponse<bool> UpdateResource(Resource resource);
