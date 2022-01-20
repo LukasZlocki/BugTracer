@@ -1,6 +1,6 @@
 ﻿using BugTracer.Data.Models;
 
-namespace BugTracer.Services.Ticket_Service
+namespace BugTracer.Services.Resource_Service
 {
     public interface IResourceService
     {
