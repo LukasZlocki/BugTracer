@@ -4,6 +4,7 @@ namespace BugTracer.Data.Models
 {
     public class Project
     {
+        [Key]
         public int Id { get; set; }
         [MaxLength(50)]
         public string Name { get; set; }
@@ -13,7 +14,7 @@ namespace BugTracer.Data.Models
         public string CreatedBy { get; set; }
         public DateTime ClosedOn { get; set; }
         public string ClosedBy { get; set; }
-
+        
         // nav properties
         public List<Ticket> Tickets { get; set; }
     }

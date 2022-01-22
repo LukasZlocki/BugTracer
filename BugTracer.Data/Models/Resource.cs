@@ -3,7 +3,8 @@
 namespace BugTracer.Data.Models
 {
     public class Resource
-    {
+    {   
+        [Key]
         public int Id { get; set; }
 
         [MaxLength(15)]
@@ -13,14 +14,9 @@ namespace BugTracer.Data.Models
         [MaxLength(64)]
         public string Email { get; set; }
 
-        // nav property
-        public ResourceRole Role { get; set; }
-
-        // Foreign key - Ticket
-        public int TicketId { get; set; }
-
+        // Foreign key - Resource Role
+        public int ResourceRoleId { get; set; }
         // inverse nav property
-        public Ticket Ticket { get; set; }
-
+        public ResourceRole Role { get; set; }
     }
 }
