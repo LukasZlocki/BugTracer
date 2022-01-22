@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BugTracer.Data.Migrations
 {
     [DbContext(typeof(BugTracerDbContext))]
-    [Migration("20220118174223_InitialMigration")]
+    [Migration("20220122095453_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -84,37 +84,30 @@ namespace BugTracer.Data.Migrations
                         .HasMaxLength(15)
                         .HasColumnType("nvarchar(15)");
 
-                    b.Property<int>("TicketId")
+                    b.Property<int>("ResourceRoleId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("TicketId")
-                        .IsUnique();
+                    b.HasIndex("ResourceRoleId");
 
                     b.ToTable("Resources");
                 });
 
             modelBuilder.Entity("BugTracer.Data.Models.ResourceRole", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("ResourceRoleId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<int>("ResourceId")
-                        .HasColumnType("int");
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ResourceRoleId"), 1L, 1);
 
                     b.Property<string>("Role")
                         .IsRequired()
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
 
-                    b.HasKey("Id");
-
-                    b.HasIndex("ResourceId")
-                        .IsUnique();
+                    b.HasKey("ResourceRoleId");
 
                     b.ToTable("ResourceRoles");
                 });
@@ -142,7 +135,16 @@ namespace BugTracer.Data.Migrations
                         .HasMaxLength(500)
                         .HasColumnType("nvarchar(500)");
 
+                    b.Property<int>("PriorityId")
+                        .HasColumnType("int");
+
                     b.Property<int>("ProjectId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ResourceId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("StatusId")
                         .HasColumnType("int");
 
                     b.Property<string>("Title")
@@ -152,135 +154,102 @@ namespace BugTracer.Data.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("PriorityId");
+
                     b.HasIndex("ProjectId");
+
+                    b.HasIndex("ResourceId");
+
+                    b.HasIndex("StatusId");
 
                     b.ToTable("Tickets");
                 });
 
             modelBuilder.Entity("BugTracer.Data.Models.TicketPriority", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("PriorityId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PriorityId"), 1L, 1);
 
                     b.Property<string>("Priority")
                         .IsRequired()
                         .HasMaxLength(15)
                         .HasColumnType("nvarchar(15)");
 
-                    b.Property<int>("TicketId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("TicketId")
-                        .IsUnique();
+                    b.HasKey("PriorityId");
 
                     b.ToTable("TicketPriorities");
                 });
 
             modelBuilder.Entity("BugTracer.Data.Models.TicketStatus", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("StatusId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("StatusId"), 1L, 1);
 
                     b.Property<string>("Status")
                         .IsRequired()
                         .HasMaxLength(10)
                         .HasColumnType("nvarchar(10)");
 
-                    b.Property<int>("TicketId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("TicketId")
-                        .IsUnique();
+                    b.HasKey("StatusId");
 
                     b.ToTable("TicketStatuses");
                 });
 
             modelBuilder.Entity("BugTracer.Data.Models.Resource", b =>
                 {
-                    b.HasOne("BugTracer.Data.Models.Ticket", "Ticket")
-                        .WithOne("Resource")
-                        .HasForeignKey("BugTracer.Data.Models.Resource", "TicketId")
+                    b.HasOne("BugTracer.Data.Models.ResourceRole", "Role")
+                        .WithMany()
+                        .HasForeignKey("ResourceRoleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Ticket");
-                });
-
-            modelBuilder.Entity("BugTracer.Data.Models.ResourceRole", b =>
-                {
-                    b.HasOne("BugTracer.Data.Models.Resource", "Resource")
-                        .WithOne("Role")
-                        .HasForeignKey("BugTracer.Data.Models.ResourceRole", "ResourceId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Resource");
+                    b.Navigation("Role");
                 });
 
             modelBuilder.Entity("BugTracer.Data.Models.Ticket", b =>
                 {
+                    b.HasOne("BugTracer.Data.Models.TicketPriority", "Priority")
+                        .WithMany()
+                        .HasForeignKey("PriorityId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("BugTracer.Data.Models.Project", "Project")
                         .WithMany("Tickets")
                         .HasForeignKey("ProjectId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("BugTracer.Data.Models.Resource", "Resource")
+                        .WithMany()
+                        .HasForeignKey("ResourceId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("BugTracer.Data.Models.TicketStatus", "Status")
+                        .WithMany()
+                        .HasForeignKey("StatusId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Priority");
+
                     b.Navigation("Project");
-                });
 
-            modelBuilder.Entity("BugTracer.Data.Models.TicketPriority", b =>
-                {
-                    b.HasOne("BugTracer.Data.Models.Ticket", "Ticket")
-                        .WithOne("Priority")
-                        .HasForeignKey("BugTracer.Data.Models.TicketPriority", "TicketId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Navigation("Resource");
 
-                    b.Navigation("Ticket");
-                });
-
-            modelBuilder.Entity("BugTracer.Data.Models.TicketStatus", b =>
-                {
-                    b.HasOne("BugTracer.Data.Models.Ticket", "Ticket")
-                        .WithOne("Status")
-                        .HasForeignKey("BugTracer.Data.Models.TicketStatus", "TicketId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Ticket");
+                    b.Navigation("Status");
                 });
 
             modelBuilder.Entity("BugTracer.Data.Models.Project", b =>
                 {
                     b.Navigation("Tickets");
-                });
-
-            modelBuilder.Entity("BugTracer.Data.Models.Resource", b =>
-                {
-                    b.Navigation("Role")
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("BugTracer.Data.Models.Ticket", b =>
-                {
-                    b.Navigation("Priority")
-                        .IsRequired();
-
-                    b.Navigation("Resource")
-                        .IsRequired();
-
-                    b.Navigation("Status")
-                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }
