@@ -29,11 +29,11 @@ namespace BugTracer.Api.Controllers
         [HttpGet("api/project/{id}")]
         public ActionResult GetProjectById(int id)
         {
-            //_logger.LogInformation("Get project by id");
+            _logger.LogInformation("Get project by id");
             var project = _projectService.GetProjectById(id);
-           // var projectMapper = ProjectMapper.SerializeProjectModelToProjectReadDtoModel(project);
-            // return Ok(projectMapper);
-            return Ok(project);
+            var projectMapper = ProjectMapper.SerializeProjectModelToProjectReadDtoModel(project);
+            return Ok(projectMapper);
+
         }
 
         /*
