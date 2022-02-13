@@ -118,7 +118,11 @@ namespace BugTracer.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<DateTime>("ClosedBy")
+                    b.Property<string>("ClosedBy")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("ClosedOn")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("CreatedBy")
