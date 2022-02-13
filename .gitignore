@@ -7,3 +7,4 @@ BugTracer.Services/bin/
 BugTracer.Services/obj/
 obj/
 BugTracer.sln
+BugTracer.Data/Migrations/
