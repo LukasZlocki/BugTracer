@@ -16,14 +16,14 @@ namespace BugTracer.Api.Controllers
             _projectService = projectService;
         }
 
-        [HttpGet("api/project")]
+        [HttpGet("api/projects")]
         public ActionResult GetAllProjects()
         {
             _logger.LogInformation("Get all projects");
             var projects = _projectService.GetAllProjects();
-           // var projectsMapper = ProjectMapper.SerializeProjectModelListToProjectReadDtoList(projects);
-           // return Ok(projectsMapper);
-           return Ok(projects);
+            var projectsMapper = ProjectMapper.SerializeProjectModelListToProjectReadDtoList(projects);
+            return Ok(projectsMapper);
+
         }
 
         [HttpGet("api/project/{id}")]
@@ -36,11 +36,6 @@ namespace BugTracer.Api.Controllers
 
         }
 
-        /*
-        public IActionResult Index()
-        {
-            return View();
-        }
-        */
+
     }
 }
