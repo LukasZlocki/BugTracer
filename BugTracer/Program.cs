@@ -1,6 +1,7 @@
 using BugTracer.Data;
 using BugTracer.Services.Project_Service;
 using BugTracer.Services.Resource_Service;
+using BugTracer.Services.Ticket_Service;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -18,6 +19,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddTransient<IProjectService, ProjectService>();
 builder.Services.AddTransient<IResourceService, ResourceService>();
+builder.Services.AddTransient<ITicketService, TicketService>();
 
 var app = builder.Build();
 
