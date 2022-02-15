@@ -55,6 +55,17 @@ namespace BugTracer.Services.Ticket_Service
             return service;
         }
 
+        /// <summary>
+        /// Returns ticket object by primary key
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns><Ticket></Ticket></returns>
+        public Ticket GetTicketById(int id)
+        {
+            var service = _db.Tickets.Find(id);
+            return service;
+        }
+
 
         // UPDATE
         public ServiceResponse<bool> UpdateTicketStatuses(Ticket ticket)
@@ -104,6 +115,7 @@ namespace BugTracer.Services.Ticket_Service
                 };
             }
         }
+
 
     }
 }

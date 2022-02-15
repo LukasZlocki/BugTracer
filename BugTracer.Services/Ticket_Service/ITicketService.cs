@@ -9,6 +9,7 @@ namespace BugTracer.Services.Ticket_Service
 
         // READ
         public List<Ticket> GetTicketsByProjectId(int id);
+        public Ticket GetTicketById(int id);
 
         // UPDATE
         public ServiceResponse<bool> UpdateTicketStatuses(Ticket ticket);
