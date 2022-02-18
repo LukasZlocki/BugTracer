@@ -1,5 +1,6 @@
 ﻿using BugTracer.Data;
 using BugTracer.Data.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace BugTracer.Services.Project_Service
 {
@@ -63,9 +64,23 @@ namespace BugTracer.Services.Project_Service
         /// <returns>Project></returns>
         public Project GetProjectById(int id)
         {
-            var service = _db.Projects.Find(id);
+            var service = _db.Projects
+                    .FirstOrDefault(x => x.Id == id);
             return service;
         }
+
+
+
+
+        /*
+        public Project GetProjectById(int id)
+        {
+            var service = _db.Projects
+                    .Include(t => t.Tickets).ToList()
+                    .FirstOrDefault(x => x.Id == id);          
+            return service;
+        }
+        */
 
         // UPDATE
         public ServiceResponse<bool> UpdateProject(Project project)
