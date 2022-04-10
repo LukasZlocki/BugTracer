@@ -5,9 +5,9 @@ namespace BugTracer.Api.Serialization
 {
     public class ProjectMapper
     {
-        public static ProjectReadDto SerializeProjectModelToProjectReadDtoModel(Project project)
+        public static ProjectBasicReadDto SerializeProjectModelToProjectReadDtoModel(Project project)
         {
-            return new ProjectReadDto
+            return new ProjectBasicReadDto
             {
                 Id = project.Id,
                 Name = project.Name,
@@ -16,7 +16,6 @@ namespace BugTracer.Api.Serialization
                 CreatedBy = project.CreatedBy,
                 ClosedOn = project.ClosedOn,
                 ClosedBy = project.ClosedBy,
-                // TicketsDto = project.Tickets 
             };
         }
 
@@ -31,13 +30,12 @@ namespace BugTracer.Api.Serialization
                 CreatedBy = projectReadDto.CreatedBy,
                 ClosedOn = projectReadDto.ClosedOn,
                 ClosedBy = projectReadDto.ClosedBy,
-                // Tickets = projectReadDto.TicketsDto
             };
         }
 
-        public static List<ProjectReadDto> SerializeProjectModelListToProjectReadDtoList(IEnumerable<Project> projects)
+        public static List<ProjectBasicReadDto> SerializeProjectModelListToProjectReadDtoList(IEnumerable<Project> projects)
         {
-            return projects.Select(project => new ProjectReadDto 
+            return projects.Select(project => new ProjectBasicReadDto 
             { 
                 Id = project.Id,
                 Name= project.Name,
@@ -46,7 +44,6 @@ namespace BugTracer.Api.Serialization
                 CreatedBy = project.CreatedBy,
                 ClosedOn= project.ClosedOn,
                 ClosedBy= project.ClosedBy,
-                // TicketsDto = project.Tickets
             }).ToList();
         }
 
@@ -60,8 +57,7 @@ namespace BugTracer.Api.Serialization
                 CreatedOn = projectsDto.CreatedOn,
                 CreatedBy = projectsDto.CreatedBy,
                 ClosedOn = projectsDto.ClosedOn,
-                ClosedBy = projectsDto.ClosedBy,
-                // Tickets = projectsDto.TicketsDto              
+                ClosedBy = projectsDto.ClosedBy,     
             }).ToList();
         }
 
