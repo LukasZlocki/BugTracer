@@ -16,10 +16,10 @@ namespace BugTracer.Api.Controllers
             _ticketService = ticketService;
         }
 
-        [HttpGet("api/tickets")]
+        [HttpGet("api/project/ticket")]
         public ActionResult GetAllTicketsByProjectId(int id)
         {
-            _logger.LogInformation("Get all tickets");
+            _logger.LogInformation("Get all tickets by project id");
             var tickets = _ticketService.GetTicketsByProjectId(id);
             var ticketsMapper = TicketMapper.SerializeTicketModelListToTicketReadDtoModelList(tickets);
             return Ok(ticketsMapper);
@@ -33,6 +33,7 @@ namespace BugTracer.Api.Controllers
             var ticketMapper = TicketMapper.SerializeTicketModelToTicketReadDtoModel(ticket);
             return Ok(ticketMapper);
         }
+
 
     }
 }
