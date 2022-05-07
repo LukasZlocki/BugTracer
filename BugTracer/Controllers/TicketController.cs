@@ -40,7 +40,9 @@ namespace BugTracer.Api.Controllers
             var resource = _resourceService.GetResourceById(_resourceId);
             var resourceMapper = ResourceMapper.SerializeResourceModelToResourceReadDtoModel(resource);
 
-            // ToDo: extend constructor for rest of objects ex status, priority
+            // ToDo: Extend constructor for rest of objects ex status, priority
+            // Services for status, priority will be needed to code
+            // Mapers also will be needed
             TicketDetailsViewModel ticketVM = new TicketDetailsViewModel(ticketMapper, resourceMapper);
 
             return Ok(ticketVM);
