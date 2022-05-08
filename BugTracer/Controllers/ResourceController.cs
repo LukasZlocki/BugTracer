@@ -34,5 +34,6 @@ namespace BugTracer.Api.Controllers
             return Ok(resourceMapper);
         }
 
+
     }
 }
