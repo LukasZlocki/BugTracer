@@ -20,7 +20,7 @@ namespace BugTracer.Api.Controllers
             _resourceService = resourceService;
         }
 
-        [HttpGet("api/project/ticket")]
+        [HttpGet("api/project/ticket/{id}")]
         public ActionResult GetAllTicketsByProjectId(int id)
         {
             _logger.LogInformation("Get all tickets by project id");
