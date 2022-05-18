@@ -21,7 +21,9 @@ namespace BugTracer.Api.Serialization
 
                 StatusId = ticket.StatusId,
                 StatusReadDTO = StatusMapper.SerializeTicketStatusModelToTicketStatusReadDtoModel(ticket.Status),
+
                 PriorityId = ticket.PriorityId,
+                PriorityReadDTO = PriorityMapper.SerializeTicketPriorityModelToTickePriorityReadDtoModel(ticket.Priority),
                 
                 ResourceId = ticket.ResourceId,
                 
