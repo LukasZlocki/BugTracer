@@ -24,9 +24,9 @@ namespace BugTracer.Api.Serialization
 
                 PriorityId = ticket.PriorityId,
                 PriorityReadDTO = PriorityMapper.SerializeTicketPriorityModelToTickePriorityReadDtoModel(ticket.Priority),
-                
+
                 ResourceId = ticket.ResourceId,
-                
+                ResourceReadDTO = ResourceMapper.SerializeResourceModelToResourceReadDtoModel(ticket.Resource)              
             };
         }
 
