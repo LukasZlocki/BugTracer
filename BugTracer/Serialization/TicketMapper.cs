@@ -20,13 +20,14 @@ namespace BugTracer.Api.Serialization
                 ClosedBy = ticket.ClosedBy,
 
                 StatusId = ticket.StatusId,
-                StatusReadDTO = StatusMapper.SerializeTicketStatusModelToTicketStatusReadDtoModel(ticket.Status),
+                //StatusReadDTO = StatusMapper.SerializeTicketStatusModelToTicketStatusReadDtoModel(ticket.Status),
 
                 PriorityId = ticket.PriorityId,
-                PriorityReadDTO = PriorityMapper.SerializeTicketPriorityModelToTickePriorityReadDtoModel(ticket.Priority),
+                // do not serialize here empty objects!!!!!!!!!
+                //PriorityReadDTO = PriorityMapper.SerializeTicketPriorityModelToTickePriorityReadDtoModel(ticket.Priority),
 
                 ResourceId = ticket.ResourceId,
-                ResourceReadDTO = ResourceMapper.SerializeResourceModelToResourceReadDtoModel(ticket.Resource)              
+                //ResourceReadDTO = ResourceMapper.SerializeResourceModelToResourceReadDtoModel(ticket.Resource)              
             };
         }
 

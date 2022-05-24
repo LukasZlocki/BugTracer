@@ -9,7 +9,7 @@ namespace BugTracer.Api.ViewModels
         public TicketPriorityReadDto Priority { get; set; }
         public TicketStatusReadDto TicketStatus { get; set; }
 
-        public TicketDetailsViewModel( TicketReadDto ticket, ResourceReadDto resource, TicketPriorityReadDto priority, TicketStatusReadDto status) 
+        public TicketDetailsViewModel(TicketReadDto ticket, ResourceReadDto resource, TicketPriorityReadDto priority, TicketStatusReadDto status)
         {
             Ticket = ticket;
             Resource = resource;
