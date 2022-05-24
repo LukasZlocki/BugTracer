@@ -1,5 +1,6 @@
 ﻿using BugTracer.Api.Dtos;
 using BugTracer.Data.Models;
+using BugTracer.Serialization;
 
 namespace BugTracer.Api.Serialization
 {
@@ -18,10 +19,10 @@ namespace BugTracer.Api.Serialization
                 ClosedOn = ticket.ClosedOn,
                 ClosedBy = ticket.ClosedBy,
 
-                StatusId = ticket.StatusId,
-                PriorityId = ticket.PriorityId,
+                StatusId = ticket.StatusId,             
+                PriorityId = ticket.PriorityId,             
                 ResourceId = ticket.ResourceId,
-                ProjectId = ticket.ProjectId
+             
             };
         }
 
@@ -39,8 +40,7 @@ namespace BugTracer.Api.Serialization
 
                 StatusId = ticket.StatusId,
                 PriorityId = ticket.PriorityId,
-                ResourceId = ticket.ResourceId,
-                ProjectId = ticket.ProjectId         
+                ResourceId = ticket.ResourceId,     
             }).ToList();
         }
 

@@ -6,15 +6,15 @@ namespace BugTracer.Api.ViewModels
     {
         public TicketReadDto Ticket { get; set; }
         public ResourceReadDto Resource { get; set; } 
-        //public TicketPriorityReadDto Priority { get; set; }
-        //public TicketStatusReadDto TicketStatus { get; set; }
+        public TicketPriorityReadDto Priority { get; set; }
+        public TicketStatusReadDto TicketStatus { get; set; }
 
-        public TicketDetailsViewModel( TicketReadDto ticket, ResourceReadDto resource) 
+        public TicketDetailsViewModel(TicketReadDto ticket, ResourceReadDto resource, TicketPriorityReadDto priority, TicketStatusReadDto status)
         {
             Ticket = ticket;
             Resource = resource;
-            //Priority = priority;
-            //TicketStatus = status;
+            Priority = priority;
+            TicketStatus = status;
         }
 
     }
