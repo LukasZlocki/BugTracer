@@ -19,15 +19,10 @@ namespace BugTracer.Api.Serialization
                 ClosedOn = ticket.ClosedOn,
                 ClosedBy = ticket.ClosedBy,
 
-                StatusId = ticket.StatusId,
-                //StatusReadDTO = StatusMapper.SerializeTicketStatusModelToTicketStatusReadDtoModel(ticket.Status),
-
-                PriorityId = ticket.PriorityId,
-                // do not serialize here empty objects!!!!!!!!!
-                //PriorityReadDTO = PriorityMapper.SerializeTicketPriorityModelToTickePriorityReadDtoModel(ticket.Priority),
-
+                StatusId = ticket.StatusId,             
+                PriorityId = ticket.PriorityId,             
                 ResourceId = ticket.ResourceId,
-                //ResourceReadDTO = ResourceMapper.SerializeResourceModelToResourceReadDtoModel(ticket.Resource)              
+             
             };
         }
 
