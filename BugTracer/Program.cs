@@ -1,6 +1,8 @@
 using BugTracer.Data;
+using BugTracer.Services.Priority_Service;
 using BugTracer.Services.Project_Service;
 using BugTracer.Services.Resource_Service;
+using BugTracer.Services.Status_Service;
 using BugTracer.Services.Ticket_Service;
 using Microsoft.EntityFrameworkCore;
 
@@ -23,6 +25,8 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddTransient<IProjectService, ProjectService>();
 builder.Services.AddTransient<IResourceService, ResourceService>();
 builder.Services.AddTransient<ITicketService, TicketService>();
+builder.Services.AddTransient<IPriorityService, PriorityService>();
+builder.Services.AddTransient<IStatusService, StatusService>();
 
 var app = builder.Build();
 
