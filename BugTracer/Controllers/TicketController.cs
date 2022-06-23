@@ -1,6 +1,5 @@
 ﻿using BugTracer.Api.Serialization;
 using BugTracer.Api.ViewModels;
-using BugTracer.Serialization;
 using BugTracer.Services.Priority_Service;
 using BugTracer.Services.Resource_Service;
 using BugTracer.Services.Status_Service;

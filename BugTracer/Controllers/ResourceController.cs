@@ -25,7 +25,7 @@ namespace BugTracer.Api.Controllers
             return Ok(resourcesMapper);
         }
 
-        [HttpGet("api/resources/{id}")]
+        [HttpGet("api/resource/{id}")]
         public ActionResult GetResourceById(int id)
         {
             _logger.LogInformation("Get resource by id");
