@@ -17,10 +17,19 @@ namespace BugTracer.Services.Status_Service
             _db = db;
         }
 
+        List<TicketStatus> IStatusService.GetAllStatuses()
+        {
+            var service = _db.TicketStatuses.ToList();
+            return service;
+        }
+
+
         public TicketStatus GetStatusById(int id)
         {
             var service = _db.TicketStatuses.Find(id);
             return service;
         }
+
+
     }
 }
