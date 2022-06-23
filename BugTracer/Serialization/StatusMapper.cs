@@ -1,7 +1,7 @@
 using BugTracer.Api.Dtos;
 using BugTracer.Data.Models;
 
-namespace BugTracer.Serialization
+namespace BugTracer.Api.Serialization
 {
     public class StatusMapper
     {
@@ -12,6 +12,15 @@ namespace BugTracer.Serialization
                 StatusId = status.StatusId,
                 Status = status.Status
             };
+        }
+
+        public static List<TicketStatusReadDto> SerializeListOfTicketStatusModelsToListOfTicketStatusReadDtoModels(IEnumerable<TicketStatus> statuses)
+        {
+            return statuses.Select(t => new TicketStatusReadDto
+            {
+                StatusId = t.StatusId,
+                Status = t.Status,
+            }).ToList();
         }
         
     }
