@@ -1,6 +1,5 @@
 ﻿using BugTracer.Api.Dtos;
 using BugTracer.Data.Models;
-using BugTracer.Serialization;
 
 namespace BugTracer.Api.Serialization
 {
