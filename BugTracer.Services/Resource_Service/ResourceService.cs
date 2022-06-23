@@ -66,6 +66,7 @@ namespace BugTracer.Services.Resource_Service
             return service;
         }
 
+
         // UPDATE
         public ServiceResponse<bool> UpdateResource(Resource resource)
         {
@@ -117,6 +118,6 @@ namespace BugTracer.Services.Resource_Service
 
         }
 
-
+       
     }
 }
