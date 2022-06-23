@@ -12,6 +12,7 @@ namespace BugTracer.Services.Status_Service
 
         // READ
         public TicketStatus GetStatusById(int id);
+        public List<TicketStatus> GetAllStatuses();
 
     }
 }
