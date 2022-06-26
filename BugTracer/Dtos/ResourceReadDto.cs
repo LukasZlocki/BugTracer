@@ -9,6 +9,6 @@ namespace BugTracer.Api.Dtos
         public string LastName { get; set; }
         public string Email { get; set; }
         public int ResourceRoleId { get; set; }
-        // public ResourceRoleReadDto RoleReadDto { get; set; }  <- add this if needed
+        public ResourceRoleReadDto RoleReadDto { get; set; } 
     }
 }

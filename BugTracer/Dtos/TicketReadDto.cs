@@ -14,8 +14,11 @@ namespace BugTracer.Api.Dtos
 
         // Foreign keys
         public int StatusId { get; set; }
+        public TaskStatusReadDto Status { get; set; }
         public int PriorityId { get; set; }
+        public TaskPriorityReadDto Priority { get; set; }
         public int ResourceId { get; set; }
+        public ResourceReadDto Resource { get; set; }
         public int ProjectId { get; set; }
         
     }
