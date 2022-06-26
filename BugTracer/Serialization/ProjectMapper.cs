@@ -5,9 +5,9 @@ namespace BugTracer.Api.Serialization
 {
     public class ProjectMapper
     {
-        public static ProjectBasicReadDto SerializeProjectModelToProjectReadDtoModel(Project project)
+        public static ProjectReadDto SerializeProjectModelToProjectReadDtoModel(Project project)
         {
-            return new ProjectBasicReadDto
+            return new ProjectReadDto
             {
                 Id = project.Id,
                 Name = project.Name,
@@ -16,13 +16,29 @@ namespace BugTracer.Api.Serialization
                 CreatedBy = project.CreatedBy,
                 ClosedOn = project.ClosedOn,
                 ClosedBy = project.ClosedBy,
+                TicketsDto = TicketMapper.SerializeTicketModelListToTicketReadDtoModelList(project.Tickets)
             };
         }
 
-
-        public static List<ProjectBasicReadDto> SerializeProjectModelListToProjectReadDtoList(IEnumerable<Project> projects)
+        public static List<ProjectReadDto> SerializeBasicProjectModelListToBasicProjectReadDtoList(IEnumerable<Project> projects)
         {
-            return projects.Select(project => new ProjectBasicReadDto 
+            return projects.Select(project => new ProjectReadDto
+            {
+                Id = project.Id,
+                Name = project.Name,
+                Description = project.Description,
+                CreatedOn = project.CreatedOn,
+                CreatedBy = project.CreatedBy,
+                ClosedOn = project.ClosedOn,
+                ClosedBy = project.ClosedBy,
+            }).ToList();
+        }
+
+
+
+        public static List<ProjectReadDto> SerializeProjectModelListToProjectReadDtoList(IEnumerable<Project> projects)
+        {
+            return projects.Select(project => new ProjectReadDto 
             { 
                 Id = project.Id,
                 Name= project.Name,
@@ -31,6 +47,7 @@ namespace BugTracer.Api.Serialization
                 CreatedBy = project.CreatedBy,
                 ClosedOn= project.ClosedOn,
                 ClosedBy= project.ClosedBy,
+                TicketsDto = TicketMapper.SerializeTicketModelListToTicketReadDtoModelList(project.Tickets)
             }).ToList();
         }
 

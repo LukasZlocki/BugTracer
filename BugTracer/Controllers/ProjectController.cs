@@ -21,15 +21,15 @@ namespace BugTracer.Api.Controllers
         }
 
         /// <summary>
-        /// Get all projects
+        /// Get all projects basic data
         /// </summary>
         /// <returns>projectsMaper</returns>
         [HttpGet("api/projects")]
-        public ActionResult GetAllProjects()
+        public ActionResult GetAllProjectsBasicData()
         {
             _logger.LogInformation("Get all projects");
-            var projects = _projectService.GetAllProjects();
-            var projectsMapper = ProjectMapper.SerializeProjectModelListToProjectReadDtoList(projects);
+            var projects = _projectService.GetAllProjectsBasicData();
+            var projectsMapper = ProjectMapper.SerializeBasicProjectModelListToBasicProjectReadDtoList(projects);
             return Ok(projectsMapper);
 
         }
@@ -47,14 +47,15 @@ namespace BugTracer.Api.Controllers
             var project = _projectService.GetProjectById(id);
             var projectMapper = ProjectMapper.SerializeProjectModelToProjectReadDtoModel(project);
             
-            var tickets = _ticketService.GetTicketsByProjectId(id);
-            var ticketMapper = TicketMapper.SerializeTicketModelListToTicketReadDtoModelList(tickets);
+           var tickets = _ticketService.GetTicketsByProjectId(id);
+           var ticketMapper = TicketMapper.SerializeTicketModelListToTicketReadDtoModelList(tickets);
 
             ProjectTicketsViewModel _viewModel = new ProjectTicketsViewModel(projectMapper, ticketMapper); 
 
             return Ok(_viewModel);
-
         }
+
+
 
 
     }
