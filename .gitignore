@@ -1,4 +1,6 @@
 .vs/
+.vscode
+BugTracer/.vscode/
 BugTracer/bin/
 BugTracer/obj/
 BugTracer.Data/bin/
