@@ -1,5 +1,6 @@
 ﻿using BugTracer.Data;
 using BugTracer.Data.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace BugTracer.Services.Ticket_Service
 {
@@ -51,7 +52,11 @@ namespace BugTracer.Services.Ticket_Service
         /// <returns>List<Ticket></tickets></returns>
         public List<Ticket> GetTicketsByProjectId(int id)
         {
-            var service = _db.Tickets.Where(t => t.ProjectId == id).ToList();
+            var service = _db.Tickets.Where(t => t.ProjectId == id)
+                .Include(p => p.Priority)
+                    .Include(r => r.Resource)
+                     .Include(s => s.Status)
+                .ToList();
             return service;
         }
 
@@ -66,9 +71,22 @@ namespace BugTracer.Services.Ticket_Service
             return service;
         }
 
+        /*
+        public Ticket GetTicketFullInfoById(int id)
+        {
+            
+            var service = _db.Tickets
+                .Include(s => s.Status)
+                                .Find(id);
 
-        // UPDATE
-        public ServiceResponse<bool> UpdateTicketStatuses(Ticket ticket)
+            return service;
+           
+        }
+        */
+
+
+    // UPDATE
+    public ServiceResponse<bool> UpdateTicketStatuses(Ticket ticket)
         {
             throw new NotImplementedException();
         }

@@ -35,6 +35,12 @@ namespace BugTracer.Api.Controllers
             return Ok(ticketsMapper);
         }
 
+
+        /// <summary>
+        /// Get all ticket data (ticket descr, resources, priority, status)
+        /// </summary>
+        /// <param name="id">ticket primary key</param>
+        /// <returns><ticketVM></returns>
         [HttpGet("api/ticket/{id}")]
         public ActionResult GetTicketbyId(int id)
         {
@@ -54,9 +60,9 @@ namespace BugTracer.Api.Controllers
             var status = _statusService.GetStatusById(_statusId);
             var statusMapper = StatusMapper.SerializeTicketStatusModelToTicketStatusReadDtoModel(status);
 
-            TicketDetailsViewModel ticketVM = new TicketDetailsViewModel(ticketMapper, resourceMapper, priorityMapper, statusMapper);
+            TicketDetailsViewModel ticketFullVM = new TicketDetailsViewModel(ticketMapper, resourceMapper, priorityMapper, statusMapper);
 
-            return Ok(ticketVM);
+            return Ok(ticketFullVM);
         }
 
 

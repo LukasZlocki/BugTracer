@@ -50,11 +50,12 @@ namespace BugTracer.Services.Project_Service
         /// returns list of Projects
         /// </summary>
         /// <returns>List<Project></Project></returns>
-        public List<Project> GetAllProjects()
+        public List<Project> GetAllProjectsBasicData()
         {
             var service = _db.Projects.ToList();
             return service;
         }
+
 
         // READ
         /// <summary>

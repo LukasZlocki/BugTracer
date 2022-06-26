@@ -33,13 +33,16 @@ namespace BugTracer.Api.Serialization
                 Title = ticket.Title,
                 Description = ticket.Description,
                 CreatedOn = ticket.CreatedOn,
-                CreatedBy = ticket.CreatedBy,
+                CreatedBy = ticket.CreatedBy, 
                 ClosedOn = ticket.ClosedOn,
                 ClosedBy = ticket.ClosedBy,
 
                 StatusId = ticket.StatusId,
+                StatusReadDTO = StatusMapper.SerializeTicketStatusModelToTicketStatusReadDtoModel(ticket.Status),
                 PriorityId = ticket.PriorityId,
-                ResourceId = ticket.ResourceId,     
+                PriorityReadDTO = PriorityMapper.SerializeTicketPriorityModelToTickePriorityReadDtoModel(ticket.Priority),
+                ResourceId = ticket.ResourceId,  
+                ResourceReadDTO = ResourceMapper.SerializeResourceModelToResourceReadDtoModel(ticket.Resource)
             }).ToList();
         }
 

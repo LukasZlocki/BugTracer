@@ -8,7 +8,7 @@ namespace BugTracer.Services.Project_Service
         public ServiceResponse<Project> AddProject(Project project);
 
         // READ
-        public List<Project> GetAllProjects();
+        public List<Project> GetAllProjectsBasicData();
         public Project GetProjectById(int id);
 
         // UPDATE
