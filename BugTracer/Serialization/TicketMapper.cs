@@ -38,8 +38,11 @@ namespace BugTracer.Api.Serialization
                 ClosedBy = ticket.ClosedBy,
 
                 StatusId = ticket.StatusId,
+                Status = TicketStatusMapper.SerializeStatusModelToStatusReadDtoModel(ticket.Status),
                 PriorityId = ticket.PriorityId,
+                Priority = TicketPriorityMapper.SerializeTicketPriorityModelToTicketPriorityReadDtoModel(ticket.Priority),
                 ResourceId = ticket.ResourceId,
+                Resource = ResourceMapper.SerializeResourceModelToResourceReadDtoModel(ticket.Resource),
                 ProjectId = ticket.ProjectId         
             }).ToList();
         }

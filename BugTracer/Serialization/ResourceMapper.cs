@@ -14,8 +14,8 @@ namespace BugTracer.Api.Serialization
                 FirstName = resource.FirstName,
                 LastName = resource.LastName,
                 Email = resource.Email,
-                ResourceRoleId = resource.ResourceRoleId
-                // resource role read dto <-- add this if needed
+                ResourceRoleId = resource.ResourceRoleId,
+                RoleReadDto = ResourceRoleMapper.SerializeResourceRoleModelToResourceRoleReadDtoModel(resource.Role)
             };
         }
 

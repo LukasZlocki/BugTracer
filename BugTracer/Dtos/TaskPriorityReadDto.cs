@@ -1,4 +1,4 @@
-﻿namespace BugTracer.Api.Dtos
+﻿ namespace BugTracer.Api.Dtos
 {
     public class TaskPriorityReadDto
     {

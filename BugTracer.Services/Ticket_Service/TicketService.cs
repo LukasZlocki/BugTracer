@@ -1,5 +1,6 @@
 ﻿using BugTracer.Data;
 using BugTracer.Data.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace BugTracer.Services.Ticket_Service
 {
@@ -51,7 +52,13 @@ namespace BugTracer.Services.Ticket_Service
         /// <returns>List<Ticket></tickets></returns>
         public List<Ticket> GetTicketsByProjectId(int id)
         {
-            var service = _db.Tickets.Where(t => t.ProjectId == id).ToList();
+            var service = _db.Tickets
+                .Where(t => t.ProjectId == id)
+                .Include(p => p.Priority)
+                .Include(s => s.Status)
+                .Include(r => r.Resource)
+                    .ThenInclude(ro => ro.Role)
+                .ToList();
             return service;
         }
 

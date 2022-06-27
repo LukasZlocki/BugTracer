@@ -69,19 +69,6 @@ namespace BugTracer.Services.Project_Service
             return service;
         }
 
-
-
-
-        /*
-        public Project GetProjectById(int id)
-        {
-            var service = _db.Projects
-                    .Include(t => t.Tickets).ToList()
-                    .FirstOrDefault(x => x.Id == id);          
-            return service;
-        }
-        */
-
         // UPDATE
         public ServiceResponse<bool> UpdateProject(Project project)
         {
